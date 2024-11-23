@@ -26,7 +26,7 @@ int main() {
 		switch (key) {
 			// Happy Face - create a face with given symbols for eyes, nose and mouse.
 			case(1):
-				char eye, nose, mouth;
+			char eye, nose, mouth;
 			int faceSize;
 			printf("Enter symbols for the eyes, nose, and mouth:\n");
 			scanf(" %c %c %c",  &eye, &nose, &mouth );
@@ -250,35 +250,41 @@ int main() {
 			// clean previuse buffer
 			scanf("%*[^\n]");
 			scanf("%*c");
-			//
 			printf("Enter a smile and cheer number:\n");
+			// ask for input. verify absorb the value of how many correct input is given
 			verify = scanf("smile: %d , cheer: %d", &smile, &cheer);
-
+			// while loop to make sure that the input is correct by form and value
 			while (verify!=2 || smile<1 || cheer<1 || smile == cheer) {
 				printf("Only 2 different positive numbers in the given format are allowed for the festival, please try again:\n");
+				// clean the buffer
 				scanf("%*[^\n]");
 				scanf("%*c");
+				// take new input
 				verify = scanf("smile: %d , cheer: %d", &smile, &cheer);
 			}
+			// ask for an input of a number that we will check until it (included)
 			printf("Enter maximum number for the festival:\n");
 			scanf("%d", &max);
+			// make sure the given number is positive
 			while (max<1) {
 				printf("Only positive maximum number is allowed, please try again:\n");
 				scanf("%d", &max);
 			}
+			// for loop to run on all the numbers until the given one (included)
 			for (int i=1; i<=max; i++) {
+				// if the number is divided by both given smile and cheer number.
 				if (i % smile == 0 && i % cheer == 0)
 					printf("Festival!\n");
+				// if the number is divided by the smile number
 				else if (i % smile == 0)
 					printf("Smile!\n");
+				// if the number is divided by the cheer number
 				else if (i % cheer == 0)
 					printf("Cheer!\n");
+				// if the number is not divided by both smile and cheer number
 				else
 					printf("%d\n", i);
 			}
-
-
-
 
 			break;
 		default:
@@ -287,63 +293,11 @@ int main() {
 					printf("Thank you for your journey through Numeria!\n");
 		    		// turn off the main loop
 		    		flag = 0;
-			// if the given number is not on the menu
+			// if the given number for choosing an option from menu is not an option.
 		    }else
 			    printf("This option is not available, please try again.\n");
 			break;
 			}
 		}
 	}
-
-
-
-	// Case 1: Draw Happy Face with given symbols for eyes, nose and mouse
-	/* Example:
-	* n = 3:
-	* 0   0
-	*   o
-	* \___/
-	*/
-
-
-	// Case 2: determine whether the sum of all digits to the left of the middle digit(s)
-	// and the sum of all digits to the right of the middle digit(s) are equal
-	/* Examples:
-	Balanced: 1533, 450810, 99
-	Not blanced: 1552, 34
-	Please notice: the number has to be bigger than 0.
-	*/
-
-
-	// Case 3: determine whether the sum of the proper divisors (od an integer) is greater than the number itself
-	/* Examples:
-	Abudant: 12, 20, 24
-	Not Abudant: 3, 7, 10
-	Please notice: the number has to be bigger than 0.
-	*/
-
-	// Case 4: determine wether a number is a prime.
-	/* Examples:
-	This one brings joy: 3, 5, 11
-	This one does not bring joy: 15, 8, 99
-	Please notice: the number has to be bigger than 0.
-	*/
-
-
-	// Happy numbers: Print all the happy numbers between 1 to the given number.
-	// Happy number is a number which eventually reaches 1 when replaced by the sum of the square of each digit
-	/* Examples:
-	Happy :) : 7, 10
-	Not Happy :( : 5, 9
-	Please notice: the number has to be bigger than 0.
-	*/
-
-	// Festival of Laughter: Prints all the numbers between 1 the given number:
-	// and replace with "Smile!" every number that divided by the given smile number
-	// and replace with "Cheer!" every number that divided by the given cheer number
-	// and replace with "Festival!" every number that divided by both of them
-	/* Example:
-	6, smile: 2, cheer: 3 : 1, Smile!, Cheer!, Smile!, 5, Festival!
-	*/
-
-
+// End
