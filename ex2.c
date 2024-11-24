@@ -9,7 +9,7 @@ Assignment: ex2
 int main() {
 	int key;
 	int flag = 1;
-	// make a while loop that will run over and over on my Numeria program (flag=1). exit when will enter 7 (flag=0)
+	// make a while loop that will run over and over on my Numeria program (flag=1). exit when enter 7 (flag=0)
 	while (flag){
 		printf("Choose an option:\n");
 		printf("\t1. Happy Face\n");
@@ -52,9 +52,9 @@ int main() {
 			for(int i=0; i<faceSize; i++)
 				printf("%c", mouth);
 			printf("/\n");
-
 			break;
-			// Balanced Number
+
+			// Balanced Number - check if the sum of all digits to the left of the middle and the sum of all digits to the right of the middle are equal in a given number.
 			case(2):
 				int number, counter=0, sumR=0, sumL=0;
 			printf("Enter a number:\n");
@@ -101,6 +101,7 @@ int main() {
 			}
 			break;
 
+			// Generous number - check if the sum of its proper divisors is greater than the given number.
 			case(3):
 				printf("Enter a number:\n");
 			scanf(" %d", &number);
@@ -111,20 +112,21 @@ int main() {
 			}
 			int sum=0;
 			/* run on all the numbers between 1 and the given number.
-				if the given number modollo the other number is 0 then the  number is divided by this number.
+				if the given number modolo the other number is 0 then the  number is divided by this number.
 				then we add the divider to a sum
 			*/
 			for (int i=1; i<number; i++) {
 				if (number%i==0)
 					sum+=i;
 			}
-			// if the sum of the dividers is greater then the number itself then the number is generous
+			// if the sum of the dividers is greater than the number itself then the number is generous
 			if (sum>number)
 				printf("This number is generous!\n");
 			else
 				printf("This number does not share.\n");
 			break;
 
+			// Circle of joy - check if a given number and its reversed form are prime.
 			case(4):
 				printf("Enter a number:\n");
 			scanf(" %d", &number);
@@ -134,9 +136,7 @@ int main() {
 				scanf("%d", &number);
 			}
 			saveNumber = number;
-
-
-			// run on all the numbers from 2-given number(exclude). if there is a divider in the way it means it isn't a prime number.
+			// run on all the numbers from 3 to the given number(exclude). if there is a divider in the way it means it isn't a prime number.
 			int check;
 			if (number>2) {
 				for(int i=2; i<number; i++) {
@@ -146,10 +146,10 @@ int main() {
 					}
 					check=i;
 				}
-				// if its less or equal to 2 (means 1/2) its a prime number
+			// if its less or equal to 2 (means 1/2) it's a prime number
 			} else
 				printf("This number completes the circle of joy!\n");
-			// exit if not a prime number
+			// exit if not a prime number. if the progrem didn't run on all the numbers, means it is not prime.
 			if (check+1!=number) {
 				break;
 			}
@@ -193,6 +193,7 @@ int main() {
 			}
 			break;
 
+			// Happy numbers - check for all the happy numbers until a given number.
 			case(5):
 				printf("Enter a number:\n");
 			scanf(" %d", &number);
@@ -244,6 +245,11 @@ int main() {
 			printf("\n");
 			break;
 
+			/* Fastival of laughter - ask for "smile" and "cheer" numbers and for max number.
+			- Any number divisible by the smileNumber is replaced with the string "Smile!"
+			- Any number divisible by the cheerNumber is replaced with the string "Cheer!"
+			- Any number divisible by both the smileNumber and the cheerNumber is replaced with the string "Festival!"
+			*/
 			case(6):
 			int smile, cheer, max;
 			int verify;
@@ -285,10 +291,10 @@ int main() {
 				else
 					printf("%d\n", i);
 			}
-
 			break;
-		default:
-			// 7 for eixt
+			// if the given manu number is not 1 - 6
+			default:
+			// 7 for exit
 		    if (key == 7) {
 					printf("Thank you for your journey through Numeria!\n");
 		    		// turn off the main loop
@@ -299,5 +305,6 @@ int main() {
 			break;
 			}
 		}
+	// End
+	return 0;
 	}
-// End
